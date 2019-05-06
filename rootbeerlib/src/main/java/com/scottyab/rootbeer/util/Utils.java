@@ -17,14 +17,6 @@ public final class Utils {
      * @return true if selinux enabled
      */
     public static boolean isSelinuxFlagInEnabled() {
-        try {
-            Class<?> c = Class.forName("android.os.SystemProperties");
-            Method get = c.getMethod("get", String.class);
-            String selinux = (String) get.invoke(c, "ro.build.selinux");
-            return "1".equals(selinux);
-        } catch (Exception ignored) {
-
-        }
         return false;
     }
 }
